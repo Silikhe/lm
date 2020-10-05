@@ -7,6 +7,7 @@ use frontend\models\Book;
 
 $this->title = 'Library Management System';
 $totalBooks = Book::find()->asArray()->all();
+$bb = Book::find()->asArray()->all();
 ?>
 <div class="row">
         <div class="col-md-3 col-sm-6 col-xs-12">

@@ -31,7 +31,7 @@ $fieldOptions3 = [
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">
-        <p class="login-box-msg">Signup  to James LMS</p>
+        <p class="login-box-msg">Signup  to Silas LM</p>
 
         <?php $form = ActiveForm::begin(['id' => 'login-form', 'enableClientValidation' => false]); ?>
 
@@ -39,11 +39,11 @@ $fieldOptions3 = [
             ->field($model, 'username', $fieldOptions1)
             ->label(false)
             ->textInput(['placeholder' => $model->getAttributeLabel('username')]) ?>
-            
+
          <?= $form
             ->field($model, 'email', $fieldOptions2)
             ->label(false)
-            ->textInput(['placeholder' => $model->getAttributeLabel('email')]) ?>    
+            ->textInput(['placeholder' => $model->getAttributeLabel('email')]) ?>
 
         <?= $form
             ->field($model, 'password', $fieldOptions3)

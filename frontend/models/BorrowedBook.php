@@ -11,7 +11,8 @@ use Yii;
  * @property int $studentId
  * @property int $bookId
  * @property string $borrowDate
- * @property string $returnDate
+ * @property string|null $actualReturnDate
+ * @property string $expectedReturnDate
  *
  * @property Student $student
  * @property Book $book
@@ -32,9 +33,9 @@ class BorrowedBook extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['studentId', 'bookId', 'borrowDate', 'returnDate'], 'required'],
+            [['studentId', 'bookId', 'borrowDate', 'expectedReturnDate'], 'required'],
             [['studentId', 'bookId'], 'integer'],
-            [['borrowDate', 'returnDate'], 'safe'],
+            [['borrowDate', 'actualReturnDate', 'expectedReturnDate'], 'safe'],
             [['studentId'], 'exist', 'skipOnError' => true, 'targetClass' => Student::className(), 'targetAttribute' => ['studentId' => 'studentsId']],
             [['bookId'], 'exist', 'skipOnError' => true, 'targetClass' => Book::className(), 'targetAttribute' => ['bookId' => 'bookId']],
         ];
@@ -50,7 +51,8 @@ class BorrowedBook extends \yii\db\ActiveRecord
             'studentId' => 'Student ID',
             'bookId' => 'Book ID',
             'borrowDate' => 'Borrow Date',
-            'returnDate' => 'Return Date',
+            'actualReturnDate' => 'Actual Return Date',
+            'expectedReturnDate' => 'Expected Return Date',
         ];
     }
 
